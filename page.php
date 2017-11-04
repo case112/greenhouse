@@ -124,8 +124,8 @@
         echo '<h2>' . 'gHouse current humidity: ' . round($currHumArray[0]['avg(humidity)'], 1) . ' &#37;' . '</h2>';
         echo '<br>';
 
-        echo '<h2>' . 'Week max temp: ' . round($weekTempMaxArray[0]['max(temperature)'], 1) . ' &deg;C' . '</h2>';
-        echo '<br>';
+        //echo '<h2>' . 'Week max temp: ' . round($weekTempMaxArray[0]['max(temperature)'], 1) . ' &deg;C' . '</h2>';
+        //echo '<br>';
 
         echo '<h2>' . 'Water current temp: ' . round($currTempWaterArray[0]['temp'], 1) . ' &deg;C' . '</h2>'; 
         echo '<br>';
