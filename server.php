@@ -4,7 +4,7 @@ $currTemp = round($currTempArray[0]['avg(temperature)'], 1) . '&deg;C';
 $currHum = round($currHumArray[0]['avg(humidity)'], 1) . '&#37;';
 $currWaterTemp = round($currTempWaterArray[0]['temp'], 1) . '&deg;C';
 $currSoilMoisture = round($currSoilMoistureArray[0]['avg(moistureperc)'], 1) . '&#37;';
-$currSoilTemp = round($currSoilTempArray[0]['avg(temperature)'], 1) . '&#37;';
+$currSoilTemp = round($currSoilTempArray[0]['avg(temperature)'], 1) . '&#37;'; 
 
 
 //Create JSON 
