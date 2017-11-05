@@ -7,7 +7,7 @@
 
         <meta charset="utf-8">
 
-        <title>Data</title>
+        <title>Data</title> 
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,19 +46,45 @@
 
         <link rel="stylesheet" href="css/circle.css">
 
-        <script>
-            var exec_php = function () {
-                var xhttp = new XMLHttpRequest();
-                xhttp.open("GET", "server.php", true);
-                xhttp.send();
-            }
-
-            setInterval(exec_php, 50000);
-</script>
-
     </head>
 
     <body>
+
+        <p id="last_updated"></p>
+        <p id="curr_temp"></p>
+        <p id="curr_hum"></p>
+        <p id="curr_soil_temp"></p>
+        <p id="curr_soil_moisture"></p>
+        <p id="curr_water_temp"></p>
+
+        <script>
+
+
+            function getData() {
+
+                var xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myObj = JSON.parse(this.responseText);
+                        document.getElementById("last_updated").innerHTML = myObj.last_updated;
+                        document.getElementById("curr_temp").innerHTML = myObj.curr_temp;
+                        document.getElementById("curr_hum").innerHTML = myObj.curr_hum;
+                        document.getElementById("curr_soil_temp").innerHTML = myObj.curr_soil_temp;
+                        document.getElementById("curr_soil_moisture").innerHTML = myObj.curr_soil_moisture;
+                        document.getElementById("curr_water_temp").innerHTML = myObj.curr_water_temp;
+                    }
+                };
+                xmlhttp.open("GET", "server.php", true);
+                xmlhttp.send();
+                console.log("Updated ");
+                setTimeout(getData, 60000);
+
+            }
+
+            getData();
+
+        </script>
 
        
 
