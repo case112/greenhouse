@@ -1,3 +1,5 @@
+
+
 function getData() {
 
     var xmlhttp = new XMLHttpRequest();
@@ -16,7 +18,7 @@ function getData() {
             document.getElementById("curr_soil_temp_clean").innerHTML = myObj.curr_soil_temp_clean;
             document.getElementById("curr_soil_moisture_clean").innerHTML = myObj.curr_soil_moisture_clean;
             document.getElementById("curr_water_temp_clean").innerHTML = myObj.curr_water_temp_clean; 
-            
+
         }
     };
     xmlhttp.open("GET", "server.php", true);
