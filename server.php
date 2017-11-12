@@ -3,19 +3,19 @@ include 'functions.php';
 
 
 // DEFINE ALL VALUES FROM DB
-$currTemp = round($currTempArray[0]['avg(temperature)'], 1) . '&deg;C';
+$currTemp = round($currTempArray[0]['avg(temperature)'], 1) . '&deg;';
 $currTempClean = 'c100 p' . round(round($currTempArray[0]['avg(temperature)'], 0) * 2.63, 0) . ' center green'; 
 
 $currHum = round($currHumArray[0]['avg(humidity)'], 1) . '&#37;';
 $currHumClean = 'c100 p' . round($currHumArray[0]['avg(humidity)'], 0) . ' center';
 
-$currWaterTemp = round($currTempWaterArray[0]['temp'], 1) . '&deg;C';
+$currWaterTemp = round($currTempWaterArray[0]['temp'], 1) . '&deg;';
 $currWaterTempClean = 'c100 p' . round(round($currTempWaterArray[0]['temp'], 0) * 3.5, 0) . ' center green';
 
 $currSoilMoisture = round($currSoilMoistureArray[0]['avg(moistureperc)'], 1) . '&#37;';
 $currSoilMoistureClean = 'c100 p' . round($currSoilMoistureArray[0]['avg(moistureperc)'], 0) . ' center';
 
-$currSoilTemp = round($currSoilTempArray[0]['avg(temperature)'], 1) . '&deg;C';  
+$currSoilTemp = round($currSoilTempArray[0]['avg(temperature)'], 1) . '&deg;';  
 $currSoilTempClean = 'c100 p' . round(round($currSoilTempArray[0]['avg(temperature)'], 0) * 3.1, 0) . ' center green'; 
 
 $lastUpdated = "Last updated: " . date('m/d/Y H:i:s', Time());
