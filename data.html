@@ -12,43 +12,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <style type="text/css">
-                
-
-            table, th, td {
-                border: 1px solid black;
-            }
-
-            
-            body{
-                background-color: #f5f5f5;
-                margin: 0;
-                padding: 0;
-                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-            }
-
-            .page {
-                margin: 40px;
-            }
-
-            h1{
-                margin: 40px 0 60px 0;
-            }
-
-            .dark-area {
-                background-color: #666;
-                padding: 40px;
-                margin: 0 -40px 20px -40px;
-                clear: both;
-            }
-
-            .clearfix:before,.clearfix:after {content: " "; display: table;}
-            .clearfix:after {clear: both;}
-            .clearfix {*zoom: 1;}
-
-        </style>
+        <style type="text/css"></style>
 
         <link rel="stylesheet" href="css/circle.css">
+        <link rel="stylesheet" href="css/style.css">
 
         
 
@@ -62,98 +29,74 @@
     </head>
 
     <body>
-    
-
-
 
         <div style="text-align: center"><p id="last_updated"></p></div>
         <div><p> </p></div>
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
 
-                    <div class="col-md">
-                        <div class="inner-content text-center">
+                <div class="col-md-2 offset-md-1">
 
-                            <h2>Greenhouse temperature</h2>
+                    <h6>GH temperature</h6>
 
-                            <div id="currentTemp" class="c100 p0 big center green">
-                                <span><p id="curr_temp"></p></span>
-                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                            </div>
+                    <div id="currentTemp" class="c100 p2 center green">
+                        <span><p id="curr_temp"></p></span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
 
-                        </div>
-                    </div><!-- /.col -->
+                </div><!-- /.col -->
 
-                    <div class="col-md">
-                        <div class="inner-content text-center">
 
-                            <h2>Greenhouse humidity</h2>
+                <div class="col-md-2">
+                    
+                    <h6>GH humidity</h6>
 
-                            <div id="currentHum" class="c100 p0 big center">
-                                <span><p id="curr_hum"></p></span>
-                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                            </div>
+                    <div id="currentHum" class="c100 p2 center">
+                        <span><p id="curr_hum"></p></span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
 
-                        </div>
-                    </div><!-- /.col -->
+                </div><!-- /.col -->
 
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-        <div><p></p></div>
-        <div class="container">
-            <div class="row">
 
-                    <div class="col-sm">
-                        <div class="inner-content text-center">
+                <div class="col-md-2">
 
-                            <h2>Soil temperature</h2>
+                    <h6>Soil temperature</h6>
 
-                            <div id="currentSoilTemp" class="c100 p0 big center green">
-                                <span><p id="curr_soil_temp"></p></span>
-                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                            </div>
+                    <div id="currentSoilTemp" class="c100 p2 center green">
+                        <span><p id="curr_soil_temp"></p></span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
+                    
+                </div><!-- /.col -->
 
-                        </div>
-                    </div><!-- /.col -->
 
-                    <div class="col-sm">
-                        <div class="inner-content text-center">
+                <div class="col-md-2">
 
-                            <h2>Soil moisture</h2>
+                    <h6>Soil moisture</h6>
 
-                            <div id="currentSoilMoisture" class="c100 p0 big center">
-                                <span><p id="curr_soil_moisture"></p></span>
-                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                            </div>
+                    <div id="currentSoilMoisture" class="c100 p2 center">
+                        <span><p id="curr_soil_moisture"></p></span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
 
-                        </div>
-                    </div><!-- /.col -->
+                </div><!-- /.col -->
 
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-        <div><p></p></div>
-        <div class="container">
-            <div class="row">
 
-                    <div class="col-sm">
-                        <div class="inner-content text-center">
+                <div class="col-md-2">
+                    
+                    <h6>Water temperature</h6>
 
-                            <h2>Water temperature</h2>
+                    <div id="currentWaterTemp" class="c100 p2 center green">
+                        <span><p id="curr_water_temp"></p></span>
+                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                    </div>
 
-                            <div id="currentWaterTemp" class="c100 p0 big center green">
-                                <span><p id="curr_water_temp"></p></span>
-                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                            </div>
-
-                        </div>
-                    </div><!-- /.col -->
-
+                </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container -->
 
-
-       
 
     </body>
 </html>
