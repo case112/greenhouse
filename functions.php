@@ -40,51 +40,196 @@
         echo $error;
     }
 
+    //DB QUERY FOR GH TEMPHUM FRONT SENSOR
+    $result = db_query("SELECT temp FROM tempHum ORDER BY thID DESC LIMIT 1,1"); 
+
+    $currTempFrontArray = array();
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currTempFrontArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR GH TEMPHUM BACK SENSOR
+    $result = db_query("SELECT temp FROM tempHum ORDER BY thID DESC LIMIT 1");
+
+    $currTempBackArray = array();
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){ 
+        $currTempBackArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR GH TEMPHUM FRONT SENSOR
+    $result = db_query("SELECT hum FROM tempHum ORDER BY thID DESC LIMIT 1,1");
+
+    $currHumFrontArray = array();
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){ 
+        $currHumFrontArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR GH TEMPHUM BACK SENSOR
+    $result = db_query("SELECT hum FROM tempHum ORDER BY thID DESC LIMIT 1");
+
+    $currHumBackArray = array();
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){ 
+        $currHumBackArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR GH SOIL LEFT SENSOR
+    $result = db_query("SELECT moistureperc FROM soil ORDER BY soilID DESC LIMIT 1");
+
+    $currSoilMoistureLeftArray = array(); 
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currSoilMoistureLeftArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR GH SOIL RIGHT SENSOR
+    $result = db_query("SELECT moistureperc FROM soil ORDER BY soilID DESC LIMIT 1,1");
+
+    $currSoilMoistureRightArray = array(); 
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currSoilMoistureRightArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR GH SOIL LEFT SENSOR
+    $result = db_query("SELECT temp FROM soil ORDER BY soilID DESC LIMIT 1");
+
+    $currSoilTempLeftArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currSoilTempLeftArray[$index] = $row;
+        $index++; 
+    }
+ 
+    //DB QUERY FOR GH SOIL RIGHT SENSOR
+    $result = db_query("SELECT temp FROM soil ORDER BY soilID DESC LIMIT 1,1");
+
+    $currSoilTempRightArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currSoilTempRightArray[$index] = $row;
+        $index++;
+    }
+
+    //DB QUERY FOR HW CABINET SENSOR
+    $result = db_query("SELECT temp FROM hardwareTempHum ORDER BY hwID DESC LIMIT 1");
+
+    $currHwTempArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currHwTempArray[$index] = $row;
+        $index++; 
+    }
+ 
+    //DB QUERY FOR HW CABINET SENSOR
+    $result = db_query("SELECT hum FROM hardwareTempHum ORDER BY hwID DESC LIMIT 1");
+
+    $currHwHumArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currHwHumArray[$index] = $row;
+        $index++;
+
+    }
+
+    //DB QUERY FOR OUTSIDE SENSOR
+    $result = db_query("SELECT temp FROM outside ORDER BY oID DESC LIMIT 1");
+
+    $currOutsideTempArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currOutsideTempArray[$index] = $row;
+        $index++; 
+    }
+ 
+    //DB QUERY FOR OUTSIDE SENSOR
+    $result = db_query("SELECT hum FROM outside ORDER BY oID DESC LIMIT 1");
+
+    $currOutsideHumArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currOutsideHumArray[$index] = $row;
+        $index++;
+        
+    }
+
+    //DB QUERY FOR DOOR SWITCHES
+    $result = db_query("SELECT state FROM windows ORDER BY switchID DESC LIMIT 1");
+
+    $currSwitchArray = array(); 
+
+    $index = 0;
+    while($row = mysqli_fetch_assoc($result)){
+        $currSwitchArray[$index] = $row;
+        $index++;
+        
+    }
+
+
+
+
+
+
 
 
     //HETKETEMPERATUUR ANDMEBAASIST
 
-    $result = db_query("SELECT avg(temperature) FROM 
-                            (SELECT temperature FROM temperaturedata ORDER BY dateandtime DESC LIMIT 2) subq ");
+    $result = db_query("SELECT avg(temp) FROM 
+                            (SELECT temp FROM tempHum ORDER BY thID DESC LIMIT 2) subq ");
 
     $currTempArray = array();
 
     $index = 0;
-    while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+    while($row = mysqli_fetch_assoc($result)){
         $currTempArray[$index] = $row;
         $index++;
     }
 
 
-    //echo '<h2>' . 'Ghs current temp:' . round($currTempArray[0]['avg(temperature)'], 1) . '</h2>';
-    //echo '<br>';
-    
-    //echo '<pre>'; print_r($yourArray); echo '</pre>';
+    //HETKENIISKUS ANDMEBAASIST 
 
-    //HETKENIISKUS ANDMEBAASIST
-
-    $result = db_query("SELECT avg(humidity) FROM 
-                            (SELECT humidity FROM temperaturedata ORDER BY dateandtime DESC LIMIT 2) subq ");
+    $result = db_query("SELECT avg(hum) FROM 
+                            (SELECT hum FROM tempHum ORDER BY thID DESC LIMIT 2) subq ");
 
     $currHumArray = array();
 
     $index = 0;
-    while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+    while($row = mysqli_fetch_assoc($result)){
         $currHumArray[$index] = $row;
         $index++;
     }
 
 
-
+    //("SELECT MAX(temp) as value_of_week FROM tempHum WHERE datetime > date_add(now(), interval -7 day");
     //N2DALA MAX TEMP
+    $result = db_query("SELECT MAX(temp) FROM tempHum WHERE 1");
 
-    $result = db_query("SELECT max(temperature) FROM temperaturedata WHERE (dateandtime > DATE_SUB(now(), INTERVAL 7 DAY))");
+    //echo $result;
+    $maxWeekTempArray = array();
 
-    $weekTempMaxArray = array();
 
     $index = 0;
-    while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
-        $weekTempMaxArray[$index] = $row;
+    while($row = mysqli_fetch_assoc($result)){
+        $maxWeekTempArray[$index] = $row; 
         $index++;
     }
 
@@ -95,49 +240,38 @@
     $currTempWaterArray = array();
 
     $index = 0;
-    while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+    while($row = mysqli_fetch_assoc($result)){
         $currTempWaterArray[$index] = $row;
+
         $index++;
     }
 
     // SOIL MOSTURE
 
     $result = db_query("SELECT avg(moistureperc) FROM 
-                            (SELECT moistureperc FROM soildata ORDER BY dateandtime DESC LIMIT 2) subq ");
+                            (SELECT moistureperc FROM soil ORDER BY datetime DESC LIMIT 2) subq ");
 
     $currSoilMoistureArray = array(); 
     $index = 0;
-    while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+    while($row = mysqli_fetch_assoc($result)){
         $currSoilMoistureArray[$index] = $row;
         $index++;
     }
 
     // SOIL TEMP
 
-    $result = db_query("SELECT avg(temperature) FROM 
-                            (SELECT temperature FROM soildata ORDER BY dateandtime DESC LIMIT 2) subq ");
+    $result = db_query("SELECT avg(temp) FROM 
+                            (SELECT temp FROM soil ORDER BY datetime DESC LIMIT 2) subq ");
 
     $currSoilTempArray = array(); 
 
     $index = 0;
-    while($row = mysqli_fetch_assoc($result)){ // loop to store the data in an associative array.
+    while($row = mysqli_fetch_assoc($result)){
         $currSoilTempArray[$index] = $row;
         $index++;
     }
 
 
-
-
-    // A select query. $result will be a `mysqli_result` object if successful
-    $result = db_query("SELECT * FROM temperaturedata WHERE (dateandtime > DATE_SUB(now(), INTERVAL 1 DAY))");
-
-    //echo "<table class='mytable' >"; // start a table tag in the HTML
-
-    //while($row = mysqli_fetch_array($result)){   //Creates a loop to loop through results
-    //echo "<tr><td>" . $row['dateandtime'] . "</td><td>" . $row['sensor'] . "</td><td>" . $row['temperature'] . "</td><td>" . $row['humidity'] . "</td></tr>";  //$row['index'] the index here is a field name
-    //}
-
-    //echo "</table>"; //Close the table in HTML
 
 
 

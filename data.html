@@ -21,7 +21,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         
-        <script src="app.js" charset="utf-8"></script>
+        <script src="app1.js" charset="utf-8"></script>
 
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -30,9 +30,12 @@
 
     <body>
 
-        <div style="text-align: center"><p id="last_updated"></p></div>
+        <div style="text-align: center"><p id="last_updated"></p><p id="curr_switch"></p></div>
+        
+        <div style="text-align: center"><p id="max_week_temp"></p></div> 
         <div><p> </p></div>
 
+        <hr></hr>
         <div class="container-fluid">
             <div class="row">
 
@@ -102,8 +105,8 @@
 
                     <h6>Outside temperature</h6>
 
-                    <div class="c100 p6 center green">
-                        <span><p id="curr_out_temp">6&deg;</p></span>
+                    <div id="currentOutsideTemp" class="c100 p2 center green">
+                        <span><p id="curr_outside_temp"></p></span>
                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                     </div>
 
@@ -112,10 +115,10 @@
 
                 <div class="col-md-2">
                     
-                    <h6>Outside humidity</h6>
+                    <h6>Outside humidity</h6> 
 
-                    <div class="c100 p97 center">
-                        <span><p id="curr_out_hum">97%</p></span>
+                    <div id="currentOutsideHum" class="c100 p2 center">
+                        <span><p id="curr_outside_hum"></p></span>
                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                     </div>
 
@@ -123,7 +126,12 @@
 
 
             </div><!-- /.row -->
+            
+            <br> 
+            <br> 
+            <button type="button" class="btn btn-info" onclick="window.location.href= 'http://green.sikkim.ee/data_more.html'">More sensor info</button>
         </div><!-- /.container -->
+
 
 
     </body>
